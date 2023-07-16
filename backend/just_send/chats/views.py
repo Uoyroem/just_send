@@ -15,4 +15,5 @@ class MessageViewSet(viewsets.ModelViewSet):
     queryset = models.Message.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(sender=self.request.user, chat=self.kwargs['chat_pk'])
+        serializer.save(
+            sender=self.request.user if self.request.user.is_authenticated else None, chat_id=self.kwargs['chat_pk'])
