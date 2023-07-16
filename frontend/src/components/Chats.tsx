@@ -37,9 +37,14 @@ export default function Chats() {
                     return <Message message={message} />
                 })}
             </div>
-            <div className="chats-grid__message-input">
-                <input type="text" value={message} onChange={event => setMessage(event.target.value)} />
-                <button onClick={sendMessage}>Отправить</button>
+            <div className="chats-grid__message-input-container">
+                <input
+                    className="input chats-grid__message-input" type="text"
+                    value={message}
+                    onChange={event => setMessage(event.target.value)}
+                    onKeyPress={event => event.key === 'Enter' && sendMessage()}
+                />
+                <button className="button" onClick={sendMessage}>Отправить</button>
             </div>
 
             <div className="chats-grid__chats">
