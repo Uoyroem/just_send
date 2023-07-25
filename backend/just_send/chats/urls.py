@@ -12,7 +12,7 @@ nested_default_router = NestedDefaultRouter(
     default_router, r'chats', lookup='chat')
 nested_default_router.register(r'messages', views.MessageViewSet, 'message')
 
-app_name = 'chat'
+app_name = 'chats'
 urlpatterns = [
     path('', include(default_router.urls)),
     path('', include(nested_default_router.urls))

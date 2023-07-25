@@ -2,5 +2,6 @@ Django
 djangorestframework
 drf-nested-routers
 django-cors-headers
+djangorestframework-simplejwt
 pika
 Pillow
