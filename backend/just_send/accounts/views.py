@@ -9,5 +9,5 @@ class UserReadOnlyViewSet(ReadOnlyModelViewSet):
 
     @action(methods=['POST'], detail=False, serializer_class=serializers.UsernamePasswordSerializer)
     def register(self, request):
-        user = User.objects.create_user(username=request.data['username'], password=request.data['password'])
+        user = User.objects.create_user(**request.data)
         user.save()
